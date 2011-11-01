@@ -74,6 +74,12 @@
     <Compile Include="Infrastructure\Bootstrapping\ApplicationTeardown.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ControllerConvention.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ControllerRegistry.cs" />
+    <Compile Include="Infrastructure\Bootstrapping\PersistenceRegistry.cs" />
+    <Compile Include="Infrastructure\Data\IQuerySessionFactory.cs" />
+    <Compile Include="Infrastructure\Data\IQuerySessionFactoryBuilder.cs" />
+    <Compile Include="Infrastructure\Data\QuerySessionExtensions.cs" />
+    <Compile Include="Infrastructure\Data\QuerySessionFactory.cs" />
+    <Compile Include="Infrastructure\Data\QuerySessionFactoryBuilder.cs" />
     <Compile Include="Infrastructure\Web\SmDependencyResolver.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ApplicationBootstrapper.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
