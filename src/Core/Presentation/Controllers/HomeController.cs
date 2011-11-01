@@ -1,12 +1,12 @@
 ﻿using System.Web.Mvc;
 
-namespace Dgg.Cqrs.Sample.Web.Controllers
+namespace Dgg.Cqrs.Sample.Core.Presentation.Controllers
 {
 	public class HomeController : Controller
 	{
 		public ActionResult Index()
 		{
-			ViewBag.Message = "Welcome to ASP.NET MVC!";
+			ViewBag.Message = "Welcome to CQRS bug tracker!";
 
 			return View();
 		}
