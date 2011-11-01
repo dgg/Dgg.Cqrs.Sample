@@ -34,9 +34,21 @@
     <Reference Include="AsyncCtpLibrary">
       <HintPath>..\..\packages\RavenDB.1.0.499\lib\net40\AsyncCtpLibrary.dll</HintPath>
     </Reference>
+    <Reference Include="Db4objects.Db4o">
+      <HintPath>..\..\packages\db4o-devel.8.1.184.15492\lib\net40\Db4objects.Db4o.dll</HintPath>
+    </Reference>
+    <Reference Include="Db4objects.Db4o.Data.Services">
+      <HintPath>..\..\packages\db4o-devel.8.1.184.15492\lib\net40\Db4objects.Db4o.Data.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Db4objects.Db4o.Linq">
+      <HintPath>..\..\packages\db4o-devel.8.1.184.15492\lib\net40\Db4objects.Db4o.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Reflection">
+      <HintPath>..\..\packages\db4o-devel.8.1.184.15492\lib\net40\Mono.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.4.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
@@ -61,6 +73,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
     <Reference Include="Microsoft.CSharp" />
@@ -75,11 +88,16 @@
     <Compile Include="Infrastructure\Bootstrapping\ControllerConvention.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ControllerRegistry.cs" />
     <Compile Include="Infrastructure\Bootstrapping\PersistenceRegistry.cs" />
+    <Compile Include="Infrastructure\Data\Db4oSessionFactory.cs" />
     <Compile Include="Infrastructure\Data\IQuerySessionFactory.cs" />
     <Compile Include="Infrastructure\Data\IQuerySessionFactoryBuilder.cs" />
+    <Compile Include="Infrastructure\Data\ISnapshotSession.cs" />
+    <Compile Include="Infrastructure\Data\ISnapshotSessionFactory.cs" />
     <Compile Include="Infrastructure\Data\QuerySessionExtensions.cs" />
     <Compile Include="Infrastructure\Data\QuerySessionFactory.cs" />
     <Compile Include="Infrastructure\Data\QuerySessionFactoryBuilder.cs" />
+    <Compile Include="Infrastructure\Data\SnapshotSession.cs" />
+    <Compile Include="Infrastructure\Data\SnapshotSessionFactory.cs" />
     <Compile Include="Infrastructure\Web\SmDependencyResolver.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ApplicationBootstrapper.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
