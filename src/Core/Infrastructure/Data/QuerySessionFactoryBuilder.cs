@@ -1,14 +1,15 @@
-﻿using Raven.Client.Document;
+﻿using System;
+using Raven.Client.Document;
 
 namespace Dgg.Cqrs.Sample.Core.Infrastructure.Data
 {
 	public class QuerySessionFactoryBuilder : IQuerySessionFactoryBuilder
 	{
-		private IQuerySessionFactory _sessionFactory;
+		private readonly Lazy<IQuerySessionFactory> _sessionFactory = new Lazy<IQuerySessionFactory>(initSessionFactory);
 
 		public IQuerySessionFactory GetSessionFactory()
 		{
-			return _sessionFactory ?? (_sessionFactory = initSessionFactory());
+			return _sessionFactory.Value;
 		}
 
 		private static IQuerySessionFactory initSessionFactory()
