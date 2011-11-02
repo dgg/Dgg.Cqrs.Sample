@@ -1,14 +1,30 @@
 ﻿@{
 	ViewBag.Title = "Presentation";
 }
-<link href="/Content/screen.css" type="text/css" rel="stylesheet" media="Screen,projection" />
 <div id="slides">
-	@Html.Partial("_1")
-	@Html.Partial("_2")
-	@Html.Partial("_3")
-	@Html.Partial("_4")
-	@Html.Partial("_5")
+	@Html.Partial("_agenda")
+	@Html.Partial("_whyCQRS")
+	@Html.Partial("_yeahButWhy")
+	@Html.Partial("_amDoingItAllWrong")
+	@Html.Partial("_gotIWhatElse")
+	@Html.Partial("_almostSoldBut")
+	@Html.Partial("_aLittleBackground")
+	@Html.Partial("_whatAndWhatNot")
+	@Html.Partial("_theWhat")
+	@Html.Partial("_anImage")
+	@Html.Partial("_userInterfaces")
+	@Html.Partial("_querySubsystem")
+	@Html.Partial("_commandSubsystem")
+	@Html.Partial("_domainModels")
+	@Html.Partial("_commandsAndEvents")
+	@Html.Partial("_code")
+	@Html.Partial("_hangingIssues")
+	@Html.Partial("_qAndA")
 </div>
+
+@section extraHead{
+<link href="/Content/screen.css" type="text/css" rel="stylesheet" media="Screen,projection" />
+}
 @section scriptContent{
 	<script type="text/javascript" src="/Scripts/jquery.presentation.js"></script>
 	<script type="text/javascript">

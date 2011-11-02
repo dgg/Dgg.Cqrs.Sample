@@ -6,8 +6,6 @@ namespace Dgg.Cqrs.Sample.Core.Presentation.Controllers
 	{
 		public ActionResult Index()
 		{
-			ViewBag.Message = "Welcome to CQRS bug tracker!";
-
 			return View();
 		}
 
