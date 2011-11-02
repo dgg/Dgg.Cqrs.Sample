@@ -1,8 +1,19 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+	ViewBag.Title = "Presentation";
 }
-
-<h2>@ViewBag.Message</h2>
-<p>
-    
-</p>
+<link href="/Content/screen.css" type="text/css" rel="stylesheet" media="Screen,projection" />
+<div id="slides">
+	@Html.Partial("_1")
+	@Html.Partial("_2")
+	@Html.Partial("_3")
+	@Html.Partial("_4")
+	@Html.Partial("_5")
+</div>
+@section scriptContent{
+	<script type="text/javascript" src="/Scripts/jquery.presentation.js"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('#slides').presentation();
+		})
+	</script>
+}
