@@ -73,6 +73,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -84,10 +85,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Admin\Commands\CreateSolution.cs" />
+    <Compile Include="Application\Admin\Commands\DeleteSolution.cs" />
+    <Compile Include="Application\Admin\Commands\RenameSolution.cs" />
+    <Compile Include="Application\Admin\Queries\IQueryRepository.cs" />
+    <Compile Include="Application\Admin\Queries\QueryRepository.cs" />
+    <Compile Include="Application\Admin\Services\ApplicationService.cs" />
+    <Compile Include="Application\Admin\Services\IApplicationService.cs" />
+    <Compile Include="Domain\Admin\Events\SolutionCreated.cs" />
+    <Compile Include="Domain\Admin\Events\SolutionDeleted.cs" />
+    <Compile Include="Domain\Admin\Events\SolutionRenamed.cs" />
+    <Compile Include="Domain\Admin\Solution.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ApplicationTeardown.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ControllerConvention.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ControllerRegistry.cs" />
     <Compile Include="Infrastructure\Bootstrapping\PersistenceRegistry.cs" />
+    <Compile Include="Infrastructure\Comb.cs" />
+    <Compile Include="Infrastructure\Commanding\CommandExecutor.cs" />
+    <Compile Include="Infrastructure\Commanding\ICommand.cs" />
     <Compile Include="Infrastructure\Data\Db4oSessionFactory.cs" />
     <Compile Include="Infrastructure\Data\IQuerySessionFactory.cs" />
     <Compile Include="Infrastructure\Data\IQuerySessionFactoryBuilder.cs" />
@@ -98,13 +113,27 @@
     <Compile Include="Infrastructure\Data\QuerySessionFactoryBuilder.cs" />
     <Compile Include="Infrastructure\Data\SnapshotSession.cs" />
     <Compile Include="Infrastructure\Data\SnapshotSessionFactory.cs" />
+    <Compile Include="Infrastructure\Eventing\DomainEvent.cs" />
+    <Compile Include="Infrastructure\Eventing\DotNetEventsArtifacts.cs" />
+    <Compile Include="Infrastructure\Eventing\EventBus.cs" />
+    <Compile Include="Infrastructure\Eventing\GenericHandler.cs" />
+    <Compile Include="Infrastructure\Eventing\IHandler.cs" />
+    <Compile Include="Infrastructure\Time.cs" />
+    <Compile Include="Infrastructure\Validation\IValidationService.cs" />
+    <Compile Include="Infrastructure\Validation\ValidationService.cs" />
+    <Compile Include="Infrastructure\Validation\Validators\NotEmptyId.cs" />
+    <Compile Include="Infrastructure\Validation\Validators\RangeValidator.cs" />
     <Compile Include="Infrastructure\Web\SmDependencyResolver.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ApplicationBootstrapper.cs" />
+    <Compile Include="Presentation\Controllers\ControllerBase.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
+    <Compile Include="Presentation\Controllers\SolutionController.cs" />
+    <Compile Include="Presentation\Models\Admin\Solution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Presentation\Models\" />
+    <Folder Include="Application\Admin\Services\Executors\" />
+    <Folder Include="Application\Admin\Services\Handlers\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
