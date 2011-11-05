@@ -3,7 +3,6 @@ using System.Web.Mvc;
 using Dgg.Cqrs.Sample.Core.Application.Admin.Commands;
 using Dgg.Cqrs.Sample.Core.Application.Admin.Queries;
 using Dgg.Cqrs.Sample.Core.Application.Admin.Services;
-using Dgg.Cqrs.Sample.Core.Infrastructure.Commanding;
 using Dgg.Cqrs.Sample.Core.Presentation.Models.Admin;
 
 namespace Dgg.Cqrs.Sample.Core.Presentation.Controllers
@@ -12,17 +11,12 @@ namespace Dgg.Cqrs.Sample.Core.Presentation.Controllers
 	{
 		private readonly IQueryRepository _queries;
 		private readonly IApplicationService _service;
-		private readonly CommandExecutor<RenameSolution> _renameExecutor;
-		private readonly CommandExecutor<DeleteSolution> _deleteExecutor;
-
-		public SolutionController(IQueryRepository queries, IApplicationService service,
-			CommandExecutor<RenameSolution> renameExecutor,
-			CommandExecutor<DeleteSolution> deleteExecutor)
+		
+		public SolutionController(IQueryRepository queries,
+			IApplicationService service)
 		{
 			_queries = queries;
 			_service = service;
-			_renameExecutor = renameExecutor;
-			_deleteExecutor = deleteExecutor;
 		}
 
 		public ActionResult Index()
@@ -62,7 +56,7 @@ namespace Dgg.Cqrs.Sample.Core.Presentation.Controllers
 		{
 			return Validating(command, () =>
 			{
-				_renameExecutor.Execute(command);
+				_service.Execute(command);
 				return RedirectToAction("List");
 			});
 		}
@@ -73,7 +67,7 @@ namespace Dgg.Cqrs.Sample.Core.Presentation.Controllers
 			DeleteSolution command = new DeleteSolution(id);
 			return Validating(command, () =>
 			{
-				_deleteExecutor.Execute(command);
+				_service.Execute(command);
 				return RedirectToAction("List");
 			});
 		}

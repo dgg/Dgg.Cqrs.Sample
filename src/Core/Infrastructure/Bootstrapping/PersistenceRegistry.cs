@@ -16,11 +16,11 @@ namespace Dgg.Cqrs.Sample.Core.Infrastructure.Bootstrapping
 
 			/*For<IEventSession>()
 				.HybridHttpOrThreadLocalScoped()
-				.Use(context => context.GetInstance<IEventSessionFactory>().CreateSession());
+				.Use(context => context.GetInstance<IEventSessionFactory>().CreateSession());*/
 
 			For<ISnapshotSession>()
 				.HybridHttpOrThreadLocalScoped()
-				.Use(context => context.GetInstance<ISnapshotSessionFactory>().CreateSession());*/
+				.Use(context => context.GetInstance<ISnapshotSessionFactory>().CreateSession());
 		}
 	}
 }

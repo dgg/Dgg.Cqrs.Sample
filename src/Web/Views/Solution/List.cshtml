@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<Dgg.Cqrs.Sample.Core.Presentation.Models.Admin.Solution>
 
+@using Dgg.Cqrs.Sample.Core.Presentation.Controllers
+@using Dgg.Cqrs.Sample.Web.Views
 @{
     ViewBag.Title = "All Solutions";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -15,7 +17,7 @@
         <th>
             Name
         </th>
-        <th></th>
+        <th colspan="2"></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -25,6 +27,9 @@
         </td>
         <td>
             @Html.ActionLink("Rename", "Rename", new { id=item.Id })
+        </td>
+		<td>
+            @(Html.DeleteLink<SolutionController>(c => c.Delete(Guid.Parse(item.Id)), "/Content/img/cross.png", "Delete"))
         </td>
     </tr>
 }

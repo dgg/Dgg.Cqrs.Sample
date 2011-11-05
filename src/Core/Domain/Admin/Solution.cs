@@ -1,7 +1,5 @@
 ﻿using System;
-using Dgg.Cqrs.Sample.Core.Domain.Admin.Events;
 using Dgg.Cqrs.Sample.Core.Infrastructure;
-using Dgg.Cqrs.Sample.Core.Infrastructure.Eventing;
 
 namespace Dgg.Cqrs.Sample.Core.Domain.Admin
 {
@@ -20,22 +18,8 @@ namespace Dgg.Cqrs.Sample.Core.Domain.Admin
 
 		public Solution Rename(string newName)
 		{
-			OnRenaming(Name, newName);
+			Name = newName;
 			return this;
-		}
-		private bool doRename(SolutionRenamed e)
-		{
-			Name = e.NewName;
-			return false;
-		}
-
-		public event DomainEventHandler<SolutionRenamed> Renaming;
-		protected virtual void OnRenaming(string oldName, string newName)
-		{
-			DomainEventHandler<SolutionRenamed> handler = Renaming;
-			if (handler != null) handler(this, new DomainEventEventArgs<SolutionRenamed>(
-				new SolutionRenamed(Id) { OldName = oldName, NewName = newName },
-				doRename));
 		}
 	}
 }

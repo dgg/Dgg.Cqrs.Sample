@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 using Dgg.Cqrs.Sample.Core.Infrastructure.Bootstrapping;
+using StructureMap;
 
 namespace Dgg.Cqrs.Sample.Web
 {
@@ -14,7 +15,7 @@ namespace Dgg.Cqrs.Sample.Web
 				.RegisterAreas()
 				.RegisterRoutes(RouteTable.Routes)
 				.RegisterGlobalFilters(GlobalFilters.Filters)
-				.ConfigureIoC();
+				.ConfigureIoC(ObjectFactory.Container);
 		}
 
 		protected void Application_EndRequest()

@@ -88,18 +88,27 @@
     <Compile Include="Application\Admin\Commands\CreateSolution.cs" />
     <Compile Include="Application\Admin\Commands\DeleteSolution.cs" />
     <Compile Include="Application\Admin\Commands\RenameSolution.cs" />
+    <Compile Include="Application\Admin\Queries\BuildsAssignedToSolution.cs" />
     <Compile Include="Application\Admin\Queries\IQueryRepository.cs" />
     <Compile Include="Application\Admin\Queries\QueryRepository.cs" />
+    <Compile Include="Application\Admin\Queries\VersionsAssignedToSolution.cs" />
     <Compile Include="Application\Admin\Services\ApplicationService.cs" />
     <Compile Include="Application\Admin\Services\IApplicationService.cs" />
+    <Compile Include="Application\DefectHandling\Queries\IssuesAssignedToSolution.cs" />
     <Compile Include="Domain\Admin\Events\SolutionCreated.cs" />
     <Compile Include="Domain\Admin\Events\SolutionDeleted.cs" />
     <Compile Include="Domain\Admin\Events\SolutionRenamed.cs" />
     <Compile Include="Domain\Admin\Solution.cs" />
+    <Compile Include="Domain\DefectHandling\AppVersion.cs" />
+    <Compile Include="Domain\DefectHandling\Build.cs" />
+    <Compile Include="Domain\DefectHandling\Issue.cs" />
+    <Compile Include="Domain\DefectHandling\Solution.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ApplicationTeardown.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ControllerConvention.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ControllerRegistry.cs" />
+    <Compile Include="Infrastructure\Bootstrapping\DefaultRegistry.cs" />
     <Compile Include="Infrastructure\Bootstrapping\PersistenceRegistry.cs" />
+    <Compile Include="Infrastructure\Bootstrapping\SystemWebRegistry.cs" />
     <Compile Include="Infrastructure\Comb.cs" />
     <Compile Include="Infrastructure\Commanding\CommandExecutor.cs" />
     <Compile Include="Infrastructure\Commanding\ICommand.cs" />
@@ -128,7 +137,13 @@
     <Compile Include="Presentation\Controllers\ControllerBase.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
     <Compile Include="Presentation\Controllers\SolutionController.cs" />
+    <Compile Include="Presentation\Models\Admin\AppVersion.cs" />
+    <Compile Include="Presentation\Models\Admin\Build.cs" />
     <Compile Include="Presentation\Models\Admin\Solution.cs" />
+    <Compile Include="Presentation\Models\DefectHandling\Issue.cs" />
+    <Compile Include="Presentation\Models\DefectHandling\IssueStatus.cs" />
+    <Compile Include="Presentation\Models\DefectHandling\Solution.cs" />
+    <Compile Include="Presentation\Models\DefectHandling\SupportEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

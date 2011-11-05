@@ -1,4 +1,4 @@
-﻿@model Dgg.Cqrs.Sample.Core.Presentation.Models.Admin.Solution
+﻿@model Dgg.Cqrs.Sample.Core.Application.Admin.Commands.RenameSolution
 
 @{
     ViewBag.Title = "Rename Solution";
@@ -15,11 +15,11 @@
         @Html.HiddenFor(model => model.Id)
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
+            @Html.LabelFor(model => model.NewName)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
+            @Html.EditorFor(model => model.NewName)
+            @Html.ValidationMessageFor(model => model.NewName)
         </div>
 
         <p>

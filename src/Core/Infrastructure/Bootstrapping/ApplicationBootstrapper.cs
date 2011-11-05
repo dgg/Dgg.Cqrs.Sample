@@ -21,9 +21,9 @@ namespace Dgg.Cqrs.Sample.Core.Infrastructure.Bootstrapping
 			return this;
 		}
 
-		public ApplicationBootstrapper ConfigureIoC()
+		public ApplicationBootstrapper ConfigureIoC(IContainer container)
 		{
-			ObjectFactory.Configure(configuration =>
+			container.Configure(configuration =>
 				configuration.Scan(scanner =>
 				{
 					scanner.TheCallingAssembly();
