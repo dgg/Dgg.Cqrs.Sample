@@ -26,7 +26,7 @@ namespace Dgg.Cqrs.Sample.Core.Application.Admin.Queries
 			return _session.Single<Solution>(id);
 		}
 
-		/*public IEnumerable<AppVersion> ListVersions()
+		public IEnumerable<AppVersion> ListVersions()
 		{
 			return _session.FindAll<AppVersion>();
 		}
@@ -36,7 +36,7 @@ namespace Dgg.Cqrs.Sample.Core.Application.Admin.Queries
 			return _session.Single<AppVersion>(id);
 		}
 
-		public IEnumerable<Build> ListBuilds()
+		/*public IEnumerable<Build> ListBuilds()
 		{
 			return _session.FindAll<Build>();
 		}

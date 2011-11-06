@@ -1,0 +1,39 @@
+﻿@model Dgg.Cqrs.Sample.Core.Presentation.Models.Admin.AppVersionAssignation
+@using Dgg.Cqrs.Sample.Core.Application.Admin.Commands
+@using Dgg.Cqrs.Sample.Web.Views
+@{
+    ViewBag.Title = "Assign to Solution";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Assign @Model.Version.Name to solution</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Fields</legend>
+
+        @Html.HiddenFor(model => model.Version.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Solutions)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList(Name.After<AssignVersion, Guid>(s => s.SolutionId), Model.Solutions)
+            @Html.ValidationMessageFor(model => model.Solutions)
+        </div>
+        <p>
+            <input type="submit" value="Assign" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section scriptContent
+{
+	<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+}

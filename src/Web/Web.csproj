@@ -142,6 +142,7 @@
     <Content Include="Global.asax" />
     <Content Include="MvcDiagnostics.aspx" />
     <Content Include="README.jQuery.vsdoc.txt" />
+    <Content Include="Scripts\application.js" />
     <Content Include="Scripts\jquery-1.6.4-vsdoc.js" />
     <Content Include="Scripts\jquery-1.6.4.js" />
     <Content Include="Scripts\jquery-1.6.4.min.js" />
@@ -247,6 +248,21 @@
   <ItemGroup>
     <Content Include="Views\Solution\Rename.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AppVersion\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AppVersion\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AppVersion\Rename.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AppVersion\Assign.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AppVersion\_Actions.cshtml" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -264,7 +280,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54872</DevelopmentServerPort>
+          <DevelopmentServerPort>61837</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

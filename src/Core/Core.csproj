@@ -85,25 +85,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Admin\Commands\AssignVersion.cs" />
     <Compile Include="Application\Admin\Commands\CreateSolution.cs" />
+    <Compile Include="Application\Admin\Commands\CreateVersion.cs" />
     <Compile Include="Application\Admin\Commands\DeleteSolution.cs" />
+    <Compile Include="Application\Admin\Commands\DeleteVersion.cs" />
     <Compile Include="Application\Admin\Commands\RenameSolution.cs" />
+    <Compile Include="Application\Admin\Commands\RenameVersion.cs" />
+    <Compile Include="Application\Admin\Commands\UnassignVersion.cs" />
     <Compile Include="Application\Admin\Queries\BuildsAssignedToSolution.cs" />
     <Compile Include="Application\Admin\Queries\IQueryRepository.cs" />
     <Compile Include="Application\Admin\Queries\QueryRepository.cs" />
     <Compile Include="Application\Admin\Queries\VersionsAssignedToSolution.cs" />
     <Compile Include="Application\Admin\Services\ApplicationService.cs" />
+    <Compile Include="Application\Admin\Services\Executors\AssignVersionExecutor.cs" />
+    <Compile Include="Application\Admin\Services\Executors\CreateVersionExecutor.cs" />
+    <Compile Include="Application\Admin\Services\Executors\DeleteVersionExecutor.cs" />
+    <Compile Include="Application\Admin\Services\Executors\RenameVersionExecutor.cs" />
+    <Compile Include="Application\Admin\Services\Executors\UnAssignVersionExecutor.cs" />
     <Compile Include="Application\Admin\Services\IApplicationService.cs" />
     <Compile Include="Application\DefectHandling\Queries\IssuesAssignedToSolution.cs" />
-    <Compile Include="Domain\Admin\Events\SolutionCreated.cs" />
-    <Compile Include="Domain\Admin\Events\SolutionDeleted.cs" />
-    <Compile Include="Domain\Admin\Events\SolutionRenamed.cs" />
+    <Compile Include="Application\DefectHandling\Queries\IssuesAssignedToVersion.cs" />
+    <Compile Include="Domain\Admin\AppVersion.cs" />
     <Compile Include="Domain\Admin\Solution.cs" />
     <Compile Include="Domain\DefectHandling\AppVersion.cs" />
     <Compile Include="Domain\DefectHandling\Build.cs" />
     <Compile Include="Domain\DefectHandling\Issue.cs" />
     <Compile Include="Domain\DefectHandling\Solution.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ApplicationTeardown.cs" />
+    <Compile Include="Infrastructure\Bootstrapping\CommandExecutorsRegistry.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ControllerConvention.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ControllerRegistry.cs" />
     <Compile Include="Infrastructure\Bootstrapping\DefaultRegistry.cs" />
@@ -113,6 +123,10 @@
     <Compile Include="Infrastructure\Commanding\CommandExecutor.cs" />
     <Compile Include="Infrastructure\Commanding\ICommand.cs" />
     <Compile Include="Infrastructure\Data\Db4oSessionFactory.cs" />
+    <Compile Include="Infrastructure\Data\EventSession.cs" />
+    <Compile Include="Infrastructure\Data\EventSessionFactory.cs" />
+    <Compile Include="Infrastructure\Data\IEventSession.cs" />
+    <Compile Include="Infrastructure\Data\IEventSessionFactory.cs" />
     <Compile Include="Infrastructure\Data\IQuerySessionFactory.cs" />
     <Compile Include="Infrastructure\Data\IQuerySessionFactoryBuilder.cs" />
     <Compile Include="Infrastructure\Data\ISnapshotSession.cs" />
@@ -134,21 +148,27 @@
     <Compile Include="Infrastructure\Validation\Validators\RangeValidator.cs" />
     <Compile Include="Infrastructure\Web\SmDependencyResolver.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ApplicationBootstrapper.cs" />
+    <Compile Include="Presentation\Controllers\AppVersionController.cs" />
     <Compile Include="Presentation\Controllers\ControllerBase.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
     <Compile Include="Presentation\Controllers\SolutionController.cs" />
     <Compile Include="Presentation\Models\Admin\AppVersion.cs" />
+    <Compile Include="Presentation\Models\Admin\AppVersionAssignation.cs" />
     <Compile Include="Presentation\Models\Admin\Build.cs" />
     <Compile Include="Presentation\Models\Admin\Solution.cs" />
+    <Compile Include="Presentation\Models\DefectHandling\AppVersion.cs" />
     <Compile Include="Presentation\Models\DefectHandling\Issue.cs" />
     <Compile Include="Presentation\Models\DefectHandling\IssueStatus.cs" />
     <Compile Include="Presentation\Models\DefectHandling\Solution.cs" />
     <Compile Include="Presentation\Models\DefectHandling\SupportEntities.cs" />
+    <Compile Include="Presentation\Models\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\Admin\Services\Executors\" />
     <Folder Include="Application\Admin\Services\Handlers\" />
+    <Folder Include="Application\DefectHandling\Executors\" />
+    <Folder Include="Application\DefectHandling\Handlers\" />
+    <Folder Include="Domain\Admin\Events\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

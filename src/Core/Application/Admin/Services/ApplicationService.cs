@@ -22,7 +22,7 @@ namespace Dgg.Cqrs.Sample.Core.Application.Admin.Services
 			_models = models;
 		}
 
-		#region Create
+		#region Create Solution
 
 		public void Execute(CreateSolution command)
 		{
@@ -98,7 +98,7 @@ namespace Dgg.Cqrs.Sample.Core.Application.Admin.Services
 
 		#endregion
 
-		#region Rename
+		#region Rename Solution
 
 		public void Execute(RenameSolution command)
 		{
@@ -182,6 +182,8 @@ namespace Dgg.Cqrs.Sample.Core.Application.Admin.Services
 
 		#endregion
 
+		#region Delete Solution
+
 		public void Execute(DeleteSolution command)
 		{
 			_validation.AssertValidity(command);
@@ -221,14 +223,14 @@ namespace Dgg.Cqrs.Sample.Core.Application.Admin.Services
 		private void deleteAssignedModels(DeleteSolution cmd)
 		{
 			Presentation.Models.Admin.AppVersion[] assignedVersions = _models.Query<Presentation.Models.Admin.AppVersion, Queries.VersionsAssignedToSolution>()
-					.Where(v => v.AssignedTo.Id == cmd.Id.ToString())
-					.ToArray();
+				.Where(v => v.AssignedTo.Id == cmd.Id.ToString())
+				.ToArray();
 
 			Array.ForEach(assignedVersions, version => version.AssignedTo = null);
 
 			Presentation.Models.Admin.Build[] assignedBuilds = _models.Query<Presentation.Models.Admin.Build, Queries.BuildsAssignedToSolution>()
-					.Where(v => v.AssignedTo.Id == cmd.Id.ToString())
-					.ToArray();
+				.Where(v => v.AssignedTo.Id == cmd.Id.ToString())
+				.ToArray();
 
 			Array.ForEach(assignedBuilds, build => build.AssignedTo = null);
 		}
@@ -259,5 +261,7 @@ namespace Dgg.Cqrs.Sample.Core.Application.Admin.Services
 
 			Array.ForEach(relatedIssues, i => _models.Delete(i));
 		}
+
+		#endregion
 	}
 }

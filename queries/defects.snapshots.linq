@@ -19,8 +19,8 @@ void dumpSnapshots()
 {
 	using(var db = Db4oEmbedded.OpenFile(snapshotsConnection)){
 		db.Cast<Solution>().AsQueryable().Dump();
-		/*db.Cast<AppVersion>().AsQueryable().Dump();
-		db.Cast<Build>().AsQueryable().Dump();
+		db.Cast<AppVersion>().AsQueryable().Dump();
+		/*db.Cast<Build>().AsQueryable().Dump();
 		db.Cast<OpenIssue>().AsQueryable().Dump();
 		db.Cast<FixedIssue>().AsQueryable().Dump();
 		db.Cast<ClosedIssue>().AsQueryable().Dump();*/
@@ -31,8 +31,8 @@ void dropSnapshots()
 {
 	using(var db = Db4oEmbedded.OpenFile(snapshotsConnection)){
 		foreach (var s in db.Cast<Solution>()) db.Delete(s);
-		/*foreach (var v in db.Cast<AppVersion>().AsQueryable())db.Delete(v);
-		foreach (var v in db.Cast<Build>().AsQueryable())db.Delete(v);
+		foreach (var v in db.Cast<AppVersion>().AsQueryable())db.Delete(v);
+		/*foreach (var v in db.Cast<Build>().AsQueryable())db.Delete(v);
 		foreach (var v in db.Cast<Issue>().AsQueryable())db.Delete(v);*/
 		db.Commit();
 	}
