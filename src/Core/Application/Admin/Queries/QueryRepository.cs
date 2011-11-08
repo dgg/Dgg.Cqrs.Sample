@@ -36,7 +36,7 @@ namespace Dgg.Cqrs.Sample.Core.Application.Admin.Queries
 			return _session.Single<AppVersion>(id);
 		}
 
-		/*public IEnumerable<Build> ListBuilds()
+		public IEnumerable<Build> ListBuilds()
 		{
 			return _session.FindAll<Build>();
 		}
@@ -44,6 +44,6 @@ namespace Dgg.Cqrs.Sample.Core.Application.Admin.Queries
 		public Build GetBuild(Guid id)
 		{
 			return _session.Single<Build>(id);
-		}*/
+		}
 	}
 }

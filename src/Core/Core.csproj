@@ -85,31 +85,57 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Admin\Commands\AssignBuild.cs" />
     <Compile Include="Application\Admin\Commands\AssignVersion.cs" />
+    <Compile Include="Application\Admin\Commands\CreateBuild.cs" />
+    <Compile Include="Application\Admin\Commands\CreateBulkOfBuilds.cs" />
     <Compile Include="Application\Admin\Commands\CreateSolution.cs" />
     <Compile Include="Application\Admin\Commands\CreateVersion.cs" />
+    <Compile Include="Application\Admin\Commands\DeleteBuild.cs" />
     <Compile Include="Application\Admin\Commands\DeleteSolution.cs" />
     <Compile Include="Application\Admin\Commands\DeleteVersion.cs" />
+    <Compile Include="Application\Admin\Commands\RenameBuild.cs" />
     <Compile Include="Application\Admin\Commands\RenameSolution.cs" />
     <Compile Include="Application\Admin\Commands\RenameVersion.cs" />
+    <Compile Include="Application\Admin\Commands\UnassignBuild.cs" />
     <Compile Include="Application\Admin\Commands\UnassignVersion.cs" />
     <Compile Include="Application\Admin\Queries\BuildsAssignedToSolution.cs" />
     <Compile Include="Application\Admin\Queries\IQueryRepository.cs" />
     <Compile Include="Application\Admin\Queries\QueryRepository.cs" />
     <Compile Include="Application\Admin\Queries\VersionsAssignedToSolution.cs" />
     <Compile Include="Application\Admin\Services\ApplicationService.cs" />
+    <Compile Include="Application\Admin\Services\Executors\AssignBuildExecutor.cs" />
     <Compile Include="Application\Admin\Services\Executors\AssignVersionExecutor.cs" />
+    <Compile Include="Application\Admin\Services\Executors\BulkCreateBuildExecutor.cs" />
+    <Compile Include="Application\Admin\Services\Executors\CreateBuildExecutor.cs" />
     <Compile Include="Application\Admin\Services\Executors\CreateVersionExecutor.cs" />
+    <Compile Include="Application\Admin\Services\Executors\DeleteBuildExecutor.cs" />
     <Compile Include="Application\Admin\Services\Executors\DeleteVersionExecutor.cs" />
+    <Compile Include="Application\Admin\Services\Executors\RenameBuildExecutor.cs" />
     <Compile Include="Application\Admin\Services\Executors\RenameVersionExecutor.cs" />
+    <Compile Include="Application\Admin\Services\Executors\UnAssignBuildExecutor.cs" />
     <Compile Include="Application\Admin\Services\Executors\UnAssignVersionExecutor.cs" />
+    <Compile Include="Application\Admin\Services\Handlers\Of.BuildAssigned.cs" />
+    <Compile Include="Application\Admin\Services\Handlers\Of.BuildCreated.cs" />
+    <Compile Include="Application\Admin\Services\Handlers\Of.BuildDeleted.cs" />
+    <Compile Include="Application\Admin\Services\Handlers\Of.BuildRenamed.cs" />
     <Compile Include="Application\Admin\Services\IApplicationService.cs" />
+    <Compile Include="Application\DefectHandling\Handlers\Of.BuildCreated.cs" />
+    <Compile Include="Application\DefectHandling\Handlers\Of.BuildDeleted.cs" />
+    <Compile Include="Application\DefectHandling\Handlers\Of.BuildRenamed.cs" />
+    <Compile Include="Application\DefectHandling\Queries\IssuesAssignedToBuild.cs" />
     <Compile Include="Application\DefectHandling\Queries\IssuesAssignedToSolution.cs" />
     <Compile Include="Application\DefectHandling\Queries\IssuesAssignedToVersion.cs" />
     <Compile Include="Domain\Admin\AppVersion.cs" />
+    <Compile Include="Domain\Admin\Build.cs" />
+    <Compile Include="Domain\Admin\Events\BuildAssigned.cs" />
+    <Compile Include="Domain\Admin\Events\BuildCreated.cs" />
+    <Compile Include="Domain\Admin\Events\BuildDeleted.cs" />
+    <Compile Include="Domain\Admin\Events\BuildRenamed.cs" />
     <Compile Include="Domain\Admin\Solution.cs" />
     <Compile Include="Domain\DefectHandling\AppVersion.cs" />
     <Compile Include="Domain\DefectHandling\Build.cs" />
+    <Compile Include="Domain\DefectHandling\Events\IssueDeleted.cs" />
     <Compile Include="Domain\DefectHandling\Issue.cs" />
     <Compile Include="Domain\DefectHandling\Solution.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ApplicationTeardown.cs" />
@@ -117,6 +143,7 @@
     <Compile Include="Infrastructure\Bootstrapping\ControllerConvention.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ControllerRegistry.cs" />
     <Compile Include="Infrastructure\Bootstrapping\DefaultRegistry.cs" />
+    <Compile Include="Infrastructure\Bootstrapping\DomainEventHandlersRegistry.cs" />
     <Compile Include="Infrastructure\Bootstrapping\PersistenceRegistry.cs" />
     <Compile Include="Infrastructure\Bootstrapping\SystemWebRegistry.cs" />
     <Compile Include="Infrastructure\Comb.cs" />
@@ -148,6 +175,7 @@
     <Compile Include="Infrastructure\Validation\Validators\RangeValidator.cs" />
     <Compile Include="Infrastructure\Web\SmDependencyResolver.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ApplicationBootstrapper.cs" />
+    <Compile Include="Presentation\Controllers\BuildController.cs" />
     <Compile Include="Presentation\Controllers\AppVersionController.cs" />
     <Compile Include="Presentation\Controllers\ControllerBase.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
@@ -155,8 +183,10 @@
     <Compile Include="Presentation\Models\Admin\AppVersion.cs" />
     <Compile Include="Presentation\Models\Admin\AppVersionAssignation.cs" />
     <Compile Include="Presentation\Models\Admin\Build.cs" />
+    <Compile Include="Presentation\Models\Admin\BuildAssignation.cs" />
     <Compile Include="Presentation\Models\Admin\Solution.cs" />
     <Compile Include="Presentation\Models\DefectHandling\AppVersion.cs" />
+    <Compile Include="Presentation\Models\DefectHandling\Build.cs" />
     <Compile Include="Presentation\Models\DefectHandling\Issue.cs" />
     <Compile Include="Presentation\Models\DefectHandling\IssueStatus.cs" />
     <Compile Include="Presentation\Models\DefectHandling\Solution.cs" />
@@ -165,10 +195,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\Admin\Services\Handlers\" />
     <Folder Include="Application\DefectHandling\Executors\" />
-    <Folder Include="Application\DefectHandling\Handlers\" />
-    <Folder Include="Domain\Admin\Events\" />
+    <Folder Include="obj\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

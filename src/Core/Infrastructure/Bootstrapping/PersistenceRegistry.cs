@@ -14,9 +14,9 @@ namespace Dgg.Cqrs.Sample.Core.Infrastructure.Bootstrapping
 				.AddInstances(inst => inst.ConstructedBy(context =>
 					context.GetInstance<IQuerySessionFactoryBuilder>().GetSessionFactory().CreateSession()));
 
-			/*For<IEventSession>()
+			For<IEventSession>()
 				.HybridHttpOrThreadLocalScoped()
-				.Use(context => context.GetInstance<IEventSessionFactory>().CreateSession());*/
+				.Use(context => context.GetInstance<IEventSessionFactory>().CreateSession());
 
 			For<ISnapshotSession>()
 				.HybridHttpOrThreadLocalScoped()

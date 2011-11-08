@@ -1,8 +1,8 @@
 <Query Kind="Program">
-  <Reference Relative="..\..\..\Dgg.Cqrs.Sample\packages\Newtonsoft.Json.4.0.2\lib\net40\Newtonsoft.Json.dll">D:\projects\Dgg.Cqrs.Sample\packages\Newtonsoft.Json.4.0.2\lib\net40\Newtonsoft.Json.dll</Reference>
-  <Reference Relative="..\..\..\Dgg.Cqrs.Sample\packages\NLog.2.0.0.2000\lib\net40\NLog.dll">D:\projects\Dgg.Cqrs.Sample\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</Reference>
-  <Reference Relative="..\..\..\Dgg.Cqrs.Sample\packages\RavenDB.1.0.499\lib\net40\Raven.Client.Lightweight.dll">D:\projects\Dgg.Cqrs.Sample\packages\RavenDB.1.0.499\lib\net40\Raven.Client.Lightweight.dll</Reference>
-  <Reference Relative="..\..\..\Dgg.Cqrs.Sample\src\Core\bin\Debug\Dgg.Cqrs.Sample.Core.dll">D:\projects\Dgg.Cqrs.Sample\src\Core\bin\Debug\Dgg.Cqrs.Sample.Core.dll</Reference>
+  <Reference Relative="..\packages\Newtonsoft.Json.4.0.2\lib\net40\Newtonsoft.Json.dll">D:\projects\Dgg.Cqrs.Sample\packages\Newtonsoft.Json.4.0.2\lib\net40\Newtonsoft.Json.dll</Reference>
+  <Reference Relative="..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll">D:\projects\Dgg.Cqrs.Sample\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</Reference>
+  <Reference Relative="..\packages\RavenDB.1.0.499\lib\net40\Raven.Client.Lightweight.dll">D:\projects\Dgg.Cqrs.Sample\packages\RavenDB.1.0.499\lib\net40\Raven.Client.Lightweight.dll</Reference>
+  <Reference Relative="..\src\Core\bin\Debug\Dgg.Cqrs.Sample.Core.dll">D:\projects\Dgg.Cqrs.Sample\src\Core\bin\Debug\Dgg.Cqrs.Sample.Core.dll</Reference>
   <Namespace>Raven.Client</Namespace>
   <Namespace>Raven.Client.Document</Namespace>
   <Namespace>Dgg.Cqrs.Sample.Core.Presentation.Models.DefectHandling</Namespace>

@@ -263,6 +263,24 @@
   <ItemGroup>
     <Content Include="Views\AppVersion\_Actions.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Build\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Build\_Actions.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Build\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Build\BulkCreate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Build\Assign.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Build\Rename.cshtml" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

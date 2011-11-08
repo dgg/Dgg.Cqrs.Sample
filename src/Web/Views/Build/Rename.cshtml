@@ -1,0 +1,35 @@
+﻿@model Dgg.Cqrs.Sample.Core.Application.Admin.Commands.RenameBuild
+
+@{
+	ViewBag.Title = "Rename Build";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Rename Build</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Fields</legend>
+        @Html.HiddenFor(model => model.Id)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NewName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NewName)
+            @Html.ValidationMessageFor(model => model.NewName)
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section scriptContent{
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+}

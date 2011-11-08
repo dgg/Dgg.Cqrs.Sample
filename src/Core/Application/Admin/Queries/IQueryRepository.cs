@@ -10,7 +10,7 @@ namespace Dgg.Cqrs.Sample.Core.Application.Admin.Queries
 		Solution GetSolution(Guid id);
 		IEnumerable<AppVersion> ListVersions();
 		AppVersion GetVersion(Guid id);
-		/*IEnumerable<Build> ListBuilds();
-		Build GetBuild(Guid id);*/
+		IEnumerable<Build> ListBuilds();
+		Build GetBuild(Guid id);
 	}
 }

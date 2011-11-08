@@ -1,0 +1,21 @@
+﻿@model Dgg.Cqrs.Sample.Core.Presentation.Models.Admin.Build
+@using Dgg.Cqrs.Sample.Core.Presentation.Controllers
+@using Dgg.Cqrs.Sample.Web.Views
+
+
+<td>
+	@Html.ActionLink("Rename", "Rename", new { id= Model.Id })
+</td>
+<td>
+	@Html.MaybeAction("Assign ", "Assign", new { id = Model.Id }).DisabledIf(Model.AssignedTo != null)
+</td>
+<td>
+	@using (Html.BeginForm("UnAssign", "Build")) {
+		@Html.HiddenFor(m => m.Id)
+		<input type="submit" value="Un-Assign" />
+        @Html.MaybeAction("Un-Assign ", "UnAssign", new { id = Model.Id }, new { @class = "post" }).DisabledIf(Model.AssignedTo == null)
+ }	
+</td>
+<td>
+	@(Html.DeleteLink<BuildController>(c => c.Delete(Guid.Parse(Model.Id)), "/Content/img/cross.png", "Delete"))
+</td>
