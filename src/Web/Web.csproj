@@ -193,7 +193,7 @@
     <Content Include="Views\Home\_whyCQRS.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\_amDoingItAllWrong.cshtml" />
+    <Content Include="Views\Home\_amIDoingItAllWrong.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\_gotIWhatElse.cshtml" />
@@ -299,6 +299,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\DisplayTemplates\_issue.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\_disclaimer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\_links.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
