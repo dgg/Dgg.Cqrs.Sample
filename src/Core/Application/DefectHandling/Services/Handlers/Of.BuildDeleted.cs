@@ -6,7 +6,7 @@ using Dgg.Cqrs.Sample.Core.Infrastructure.Data;
 using Dgg.Cqrs.Sample.Core.Infrastructure.Eventing;
 using Raven.Client;
 
-namespace Dgg.Cqrs.Sample.Core.Application.DefectHandling.Handlers
+namespace Dgg.Cqrs.Sample.Core.Application.DefectHandling.Services.Handlers
 {
 	public class BuildDeletedSnapshotUpdater : IHandler<BuildDeleted>
 	{

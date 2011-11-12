@@ -29,9 +29,9 @@ namespace Dgg.Cqrs.Sample.Core.Domain.DefectHandling
 		public string ExpectedResult { get; set; }
 		public string ActualResult { get; set; }
 
-		/*public static OpenIssue Open(Solution solution, AppVersion version, Build build, string title, string description, string stepsToReproduce, string expectedResult, string actualResult)
+		public static OpenIssue Open(Solution solution, AppVersion version, Build build, string title, string description, string stepsToReproduce, string expectedResult, string actualResult)
 		{
 			return new OpenIssue(solution, version, build, title, description, stepsToReproduce, expectedResult, actualResult);
-		}*/
+		}
 	}
 }

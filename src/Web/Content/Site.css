@@ -369,14 +369,10 @@ div#title
 /* Application Styles
 ----------------------------------------------------------*/
 .disabled { color: #696969; text-decoration: none; }
-.buttonAsLink{
-	/*font-family:       Verdana, Arial, Helvetica, sans-serif;
-	font-size:         11px;
-	color:             #4d798e;
-	background-color:  #bdd1d7;
-	font-weight:       bold;*/
-	padding:           3px 0;
-	border-width:      0;  
-	cursor:            pointer;
-	width:             100px;
-	}
+
+ul.actions {position: relative; margin-bottom: 0px; text-align: left; padding-left: 0px; margin-top: 0px; }
+ul.actions li { list-style: none; }
+
+span.Open { color: firebrick}
+span.Fixed { color: cadetblue}
+span.Closed { color: black}

@@ -1,44 +1,40 @@
 ﻿using System;
 using System.Linq.Expressions;
 using System.Web.Mvc;
-using Microsoft.Web.Mvc;
+using System.Web.UI;
 
 namespace Dgg.Cqrs.Sample.Web.Views
 {
 	public static class HtmlHelperExtensions
 	{
-		public static MvcHtmlString DeleteLink<TController>(this HtmlHelper helper, Expression<Action<TController>> action, string imageUrlPath, string title) where TController : Controller
+		public static MvcHtmlString DeleteAction<TController>(this HtmlHelper helper, string title, Expression<Action<TController>> action, string imagePath) where TController : Controller
 		{
-			var url = LinkBuilder.BuildUrlFromExpression(helper.ViewContext.RequestContext, helper.RouteCollection, action);
+			var input = new ImageInputBuilder(helper, imagePath, title);
 
-			var formTag = new TagBuilder("form");
+			var form = new FormBuilder<TController>(helper, action)
+			{
+				InnerHtml = input.ToString(TagRenderMode.SelfClosing) + helper.HttpMethodOverride(HttpVerbs.Delete)
+			};
 
-			formTag.MergeAttribute("action", url);
-			formTag.MergeAttribute("method", "POST");
-
-			var inputTag = new TagBuilder("input");
-			inputTag.MergeAttribute("type", "image");
-			inputTag.MergeAttribute("src", imageUrlPath);
-			inputTag.MergeAttribute("alt", "Delete");
-
-			formTag.InnerHtml = inputTag.ToString(TagRenderMode.SelfClosing) + helper.HttpMethodOverride(HttpVerbs.Delete);
-
-			return MvcHtmlString.Create(formTag.ToString());
+			return MvcHtmlString.Create(form.ToString());
 		}
 
-		public static MvcHtmlString Url<TController>(this HtmlHelper helper, Expression<Action<TController>> action) where TController : Controller
+		public static MvcHtmlString Action<TController>(this HtmlHelper helper, string title, Expression<Action<TController>> action, string imagePath) where TController : Controller
 		{
-			return MvcHtmlString.Create(helper.BuildUrlFromExpression(action));
+			TagBuilder a = new ImageLinkBuilder<TController>(helper, action,
+				new ImageBuilder(helper, imagePath, title));
+
+			return MvcHtmlString.Create(a.ToString(TagRenderMode.Normal));
 		}
 
-		public static ConditionalActionLink MaybeAction(this HtmlHelper helper, string linkText, string actionName, object routeValues)
+		public static ConditionalActionLink<TController> MaybeAction<TController>(this HtmlHelper helper, string title, Expression<Action<TController>> action, string imagePath) where TController : Controller
 		{
-			return MaybeAction(helper, linkText, actionName, routeValues, null);
+			return new ConditionalActionLink<TController>(helper, title, action, imagePath);
 		}
 
-		public static ConditionalActionLink MaybeAction(this HtmlHelper helper, string linkText, string actionName, object routeValues, object htmlAttributes)
+		public static ConditionalPostActionLink<TController> MaybePostAction<TController>(this HtmlHelper helper, string title, Expression<Action<TController>> action, string imagePath) where TController : Controller
 		{
-			return new ConditionalActionLink(helper, linkText, actionName, routeValues, htmlAttributes);
+			return new ConditionalPostActionLink<TController>(helper, title, action, imagePath);
 		}
 	}
 
@@ -48,21 +44,31 @@ namespace Dgg.Cqrs.Sample.Web.Views
 		{
 			return ExpressionHelper.GetExpressionText(property);
 		}
+
+		public static string Lower(this HtmlTextWriterAttribute attribute)
+		{
+			return attribute.ToString().ToLowerInvariant();
+		}
+
+		public static string Lower(this HtmlTextWriterTag tag)
+		{
+			return tag.ToString().ToLowerInvariant();
+		}
 	}
 
-	public class ConditionalActionLink
+	public class ConditionalActionLink<TController> where TController : Controller
 	{
 		private readonly HtmlHelper _helper;
-		private readonly string _linkText, _actionName;
-		private readonly object _routeValues, _htmlAttributes;
+		private readonly string _title;
+		private readonly Expression<Action<TController>> _action;
+		private readonly string _imagePath;
 
-		public ConditionalActionLink(HtmlHelper helper, string linkText, string actionName, object routeValues, object htmlAttributes)
+		public ConditionalActionLink(HtmlHelper helper, string title, Expression<Action<TController>> action, string imagePath)
 		{
 			_helper = helper;
-			_linkText = linkText;
-			_actionName = actionName;
-			_routeValues = routeValues;
-			_htmlAttributes = htmlAttributes;
+			_title = title;
+			_action = action;
+			_imagePath = imagePath;
 		}
 
 		public MvcHtmlString DisabledIf(bool condition)
@@ -72,17 +78,53 @@ namespace Dgg.Cqrs.Sample.Web.Views
 
 		private MvcHtmlString disabledLink()
 		{
-			var span = new TagBuilder("span");
-			span.MergeAttribute("class", "disabled");
-
-			span.InnerHtml = _linkText;
-
-			return MvcHtmlString.Create(span.ToString(TagRenderMode.Normal));
+			return MvcHtmlString.Empty;
 		}
 
 		private MvcHtmlString enabledLink()
 		{
-			return System.Web.Mvc.Html.LinkExtensions.ActionLink(_helper, _linkText, _actionName, _routeValues, _htmlAttributes);
+			var a = new ImageLinkBuilder<TController>(_helper, _action,
+				new ImageBuilder(_helper, _imagePath, _title));
+			return MvcHtmlString.Create(a.ToString(TagRenderMode.Normal));
+		}
+	}
+
+	public class ConditionalPostActionLink<TController> where TController : Controller
+	{
+		private readonly HtmlHelper _helper;
+		private readonly string _title;
+		private readonly Expression<Action<TController>> _action;
+		private readonly string _imagePath;
+
+		public ConditionalPostActionLink(HtmlHelper helper, string title, Expression<Action<TController>> action, string imagePath)
+		{
+			_helper = helper;
+			_title = title;
+			_action = action;
+			_imagePath = imagePath;
+		}
+
+		public MvcHtmlString DisabledIf(bool condition)
+		{
+			return condition ? disabledLink() : enabledLink();
+		}
+
+		private MvcHtmlString disabledLink()
+		{
+			return MvcHtmlString.Empty;
+		}
+
+		private MvcHtmlString enabledLink()
+		{
+			var img = new ImageInputBuilder(_helper, _imagePath, _title);
+			img.MergeAttribute(HtmlTextWriterAttribute.Class.Lower(), "post");
+
+			var form = new FormBuilder<TController>(_helper, _action)
+			{
+				InnerHtml = img.ToString(TagRenderMode.SelfClosing)
+			};
+
+			return new MvcHtmlString(form.ToString(TagRenderMode.Normal));
 		}
 	}
 }

@@ -1,0 +1,8 @@
+﻿@using Dgg.Cqrs.Sample.Core.Presentation.Controllers
+@using Dgg.Cqrs.Sample.Web.Views
+@model Dgg.Cqrs.Sample.Core.Presentation.Models.Admin.Solution
+		   
+<ul class="actions">
+	<li>@(Html.Action<SolutionController>("Rename", c => c.Rename(new Guid(Model.Id)), "~/Content/img/pencil.png"))</li>
+	<li>@(Html.DeleteAction<SolutionController>("Delete", c => c.Delete(Guid.Parse(Model.Id)), "~/Content/img/cross.png"))</li>
+</ul>

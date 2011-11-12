@@ -1,0 +1,93 @@
+﻿@model Dgg.Cqrs.Sample.Core.Presentation.Models.DefectHandling.IssueOpening
+
+@{
+	ViewBag.Title = "Open Issue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Open Issue</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Fields</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SolutionId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.SolutionId, Model.Solutions)
+            @Html.ValidationMessageFor(model => model.SolutionId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.VersionId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.VersionId, Model.Versions)
+            @Html.ValidationMessageFor(model => model.VersionId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BuildId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.BuildId, Model.Builds)
+			@Html.ValidationMessageFor(model => model.BuildId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Description)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Description)
+            @Html.ValidationMessageFor(model => model.Description)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.StepsToReproduce)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.StepsToReproduce)
+            @Html.ValidationMessageFor(model => model.StepsToReproduce)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ExpectedResult)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.ExpectedResult)
+            @Html.ValidationMessageFor(model => model.ExpectedResult)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ActualResult)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.ActualResult)
+            @Html.ValidationMessageFor(model => model.ActualResult)
+        </div>
+
+        <p>
+            <input type="submit" value="Open" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+@section scriptContent{
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+}

@@ -1,8 +1,16 @@
 ﻿$(function () {
 	$('a.post').click(function (event) {
 		event.stopPropagation();
-		var url = $(this).parent('form').attr('action');
-		alert(url);
-		$.post(url, null, function (data) { alert('solution assigned'); });
+		var form = $(this).parent('form'); 
+		var url = form.attr('action');
+		$.ajax({
+			async: false,
+			type: 'POST',
+			url: url,
+			data: form.serialize(),
+			success: function () {
+				document.location.href = document.location.href;
+			}
+		});
 	});
 });

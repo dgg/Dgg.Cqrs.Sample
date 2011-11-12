@@ -1,0 +1,56 @@
+﻿@model Dgg.Cqrs.Sample.Core.Presentation.Models.DefectHandling.IssueFixing
+
+@{
+	ViewBag.Title = "Fix Issue";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Fix <em>&quot;@Model.Title&quot;</em> Issue</h2>
+
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Fields</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FixedInVersionId)
+        </div>
+        <div class="editor-field">
+			@Html.DropDownListFor(model => model.FixedInVersionId, Model.Versions)
+            @Html.ValidationMessageFor(model => model.FixedInVersionId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FixedInBuildId)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.FixedInBuildId, Model.Builds)
+            @Html.ValidationMessageFor(model => model.FixedInBuildId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Resolution)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Resolution)
+            @Html.ValidationMessageFor(model => model.Resolution)
+        </div>
+
+        <p>
+            <input type="submit" value="Fix" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section scriptContent{
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+}

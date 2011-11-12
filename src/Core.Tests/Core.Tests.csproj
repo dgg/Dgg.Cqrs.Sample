@@ -41,9 +41,16 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Testing.Commons">
+      <HintPath>..\..\packages\Testing.Commons.1.1.0.0\lib\net40\Testing.Commons.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\DefectHandling\IssueTester.cs" />
+    <Compile Include="Domain\Support\EntityTester.cs" />
+    <Compile Include="Infrastructure\Bootstrapping\CommandExecutorRegistryTester.cs" />
     <Compile Include="Infrastructure\Bootstrapping\DefaultRegistryTester.cs" />
+    <Compile Include="Infrastructure\Bootstrapping\DomainEventHandlerRegistryTester.cs" />
     <Compile Include="Infrastructure\Bootstrapping\PersistenceRegistryTester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -52,6 +59,9 @@
       <Project>{3C28A253-7E61-46CA-9448-B34AAE870BDB}</Project>
       <Name>Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

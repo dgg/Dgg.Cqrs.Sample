@@ -1,0 +1,15 @@
+﻿@model Issue
+@using Dgg.Cqrs.Sample.Core.Presentation.Controllers
+@using Dgg.Cqrs.Sample.Core.Presentation.Models.DefectHandling
+@using Dgg.Cqrs.Sample.Web.Views
+<ul class="actions">
+	<li>
+		@(Html.MaybeAction<IssueController>("Fix", c => c.Fix(new Guid(Model.Id)), "~/Content/img/wrench.png").DisabledIf(Model.Status != IssueStatus.Open))
+	</li>
+	<li>
+		@(Html.MaybePostAction<IssueController>("Close", c => c.Close(new Guid(Model.Id)), "~/Content/img/accept.png").DisabledIf(Model.Status != IssueStatus.Fixed))
+	</li>
+	<li>
+		@(Html.DeleteAction<IssueController>("Delete", c => c.Delete(Guid.Parse(Model.Id)), "~/Content/img/cross.png"))
+	</li>
+</ul>

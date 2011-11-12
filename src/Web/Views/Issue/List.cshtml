@@ -1,19 +1,19 @@
-﻿@model IEnumerable<Dgg.Cqrs.Sample.Core.Presentation.Models.Admin.AppVersion>
-		   
+﻿@model IEnumerable<Dgg.Cqrs.Sample.Core.Presentation.Models.DefectHandling.Issue>
+
 @{
-    ViewBag.Title = "All Versions";
+	ViewBag.Title = "All Issues";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>All Versions</h2>
+<h2>All Issues</h2>
 
 <p>
-    @Html.ActionLink("Create", "Create")
+    @Html.ActionLink("Open", "Open")
 </p>
 <table>
     <tr>
         <th>
-            Name
+            Title
         </th>
         <th></th>
     </tr>
@@ -21,8 +21,8 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
+            @Html.DisplayFor(modelItem => item, "_issue")
+        </td>        
         <td>@Html.Partial("_Actions", item)</td>
     </tr>
 }

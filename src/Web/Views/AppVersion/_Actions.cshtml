@@ -1,22 +1,17 @@
 ﻿@model Dgg.Cqrs.Sample.Core.Presentation.Models.Admin.AppVersion
 @using Dgg.Cqrs.Sample.Core.Presentation.Controllers
 @using Dgg.Cqrs.Sample.Web.Views
-
-
-<td>
-	@Html.ActionLink("Rename", "Rename", new { id= Model.Id })
-</td>
-<td>
-	@Html.MaybeAction("Assign ", "Assign", new { id = Model.Id }).DisabledIf(Model.AssignedTo != null)
-</td>
-<td>
-	@using (Html.BeginForm("UnAssign", "AppVersion")) {
-		@Html.HiddenFor(m => m.Id)
-		<input type="submit" value="Un-Assign" />
-        @Html.MaybeAction("Un-Assign ", "UnAssign", new { id = Model.Id }, new { @class = "post" }).DisabledIf(Model.AssignedTo == null)
- }
-	
-</td>
-<td>
-	@(Html.DeleteLink<AppVersionController>(c => c.Delete(Guid.Parse(Model.Id)), "/Content/img/cross.png", "Delete"))
-</td>
+<ul class="actions">
+	<li>
+		@(Html.Action<AppVersionController>("Rename", c => c.Rename(new Guid(Model.Id)), "~/Content/img/pencil.png"))
+	</li>
+	<li>
+		@(Html.MaybeAction<AppVersionController>("Assign ", c => c.Assign(new Guid(Model.Id)), "~/Content/img/tag_blue_add.png").DisabledIf(Model.AssignedTo != null))
+	</li>
+	<li>
+		@(Html.MaybePostAction<AppVersionController>("Un-Assign", c => c.UnAssign(new Guid(Model.Id)), "~/Content/img/tag_blue_delete.png").DisabledIf(Model.AssignedTo == null))
+	</li>
+	<li>
+		@(Html.DeleteAction<AppVersionController>("Delete", c => c.Delete(Guid.Parse(Model.Id)), "~/Content/img/cross.png"))
+	</li>
+</ul>

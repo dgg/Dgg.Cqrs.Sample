@@ -120,12 +120,26 @@
     <Compile Include="Application\Admin\Services\Handlers\Of.BuildDeleted.cs" />
     <Compile Include="Application\Admin\Services\Handlers\Of.BuildRenamed.cs" />
     <Compile Include="Application\Admin\Services\IApplicationService.cs" />
-    <Compile Include="Application\DefectHandling\Handlers\Of.BuildCreated.cs" />
-    <Compile Include="Application\DefectHandling\Handlers\Of.BuildDeleted.cs" />
-    <Compile Include="Application\DefectHandling\Handlers\Of.BuildRenamed.cs" />
+    <Compile Include="Application\DefectHandling\Commands\CloseIssue.cs" />
+    <Compile Include="Application\DefectHandling\Commands\DeleteIssue.cs" />
+    <Compile Include="Application\DefectHandling\Commands\FixIssue.cs" />
+    <Compile Include="Application\DefectHandling\Commands\OpenIssue.cs" />
+    <Compile Include="Application\DefectHandling\Queries\IQueryRepository.cs" />
+    <Compile Include="Application\DefectHandling\Queries\QueryRepository.cs" />
+    <Compile Include="Application\DefectHandling\Services\Executors\CloseIssueExecutor.cs" />
+    <Compile Include="Application\DefectHandling\Services\Executors\DeleteIssueExecutor.cs" />
+    <Compile Include="Application\DefectHandling\Services\Executors\FixIssueExecutor.cs" />
+    <Compile Include="Application\DefectHandling\Services\Executors\OpenIssueExecutor.cs" />
+    <Compile Include="Application\DefectHandling\Services\Handlers\Of.BuildCreated.cs" />
+    <Compile Include="Application\DefectHandling\Services\Handlers\Of.BuildDeleted.cs" />
+    <Compile Include="Application\DefectHandling\Services\Handlers\Of.BuildRenamed.cs" />
     <Compile Include="Application\DefectHandling\Queries\IssuesAssignedToBuild.cs" />
     <Compile Include="Application\DefectHandling\Queries\IssuesAssignedToSolution.cs" />
     <Compile Include="Application\DefectHandling\Queries\IssuesAssignedToVersion.cs" />
+    <Compile Include="Application\DefectHandling\Services\Handlers\Of.IssueClosed.cs" />
+    <Compile Include="Application\DefectHandling\Services\Handlers\Of.IssueDeleted.cs" />
+    <Compile Include="Application\DefectHandling\Services\Handlers\Of.IssueFixed.cs" />
+    <Compile Include="Application\DefectHandling\Services\Handlers\Of.IssueOpened.cs" />
     <Compile Include="Domain\Admin\AppVersion.cs" />
     <Compile Include="Domain\Admin\Build.cs" />
     <Compile Include="Domain\Admin\Events\BuildAssigned.cs" />
@@ -135,8 +149,14 @@
     <Compile Include="Domain\Admin\Solution.cs" />
     <Compile Include="Domain\DefectHandling\AppVersion.cs" />
     <Compile Include="Domain\DefectHandling\Build.cs" />
+    <Compile Include="Domain\DefectHandling\ClosedIssue.cs" />
+    <Compile Include="Domain\DefectHandling\Events\IssueClosed.cs" />
     <Compile Include="Domain\DefectHandling\Events\IssueDeleted.cs" />
+    <Compile Include="Domain\DefectHandling\Events\IssueFixed.cs" />
+    <Compile Include="Domain\DefectHandling\Events\IssueOpened.cs" />
+    <Compile Include="Domain\DefectHandling\FixedIssue.cs" />
     <Compile Include="Domain\DefectHandling\Issue.cs" />
+    <Compile Include="Domain\DefectHandling\OpenIssue.cs" />
     <Compile Include="Domain\DefectHandling\Solution.cs" />
     <Compile Include="Infrastructure\Bootstrapping\ApplicationTeardown.cs" />
     <Compile Include="Infrastructure\Bootstrapping\CommandExecutorsRegistry.cs" />
@@ -179,6 +199,7 @@
     <Compile Include="Presentation\Controllers\AppVersionController.cs" />
     <Compile Include="Presentation\Controllers\ControllerBase.cs" />
     <Compile Include="Presentation\Controllers\HomeController.cs" />
+    <Compile Include="Presentation\Controllers\IssueController.cs" />
     <Compile Include="Presentation\Controllers\SolutionController.cs" />
     <Compile Include="Presentation\Models\Admin\AppVersion.cs" />
     <Compile Include="Presentation\Models\Admin\AppVersionAssignation.cs" />
@@ -188,6 +209,8 @@
     <Compile Include="Presentation\Models\DefectHandling\AppVersion.cs" />
     <Compile Include="Presentation\Models\DefectHandling\Build.cs" />
     <Compile Include="Presentation\Models\DefectHandling\Issue.cs" />
+    <Compile Include="Presentation\Models\DefectHandling\IssueFixing.cs" />
+    <Compile Include="Presentation\Models\DefectHandling\IssueOpening.cs" />
     <Compile Include="Presentation\Models\DefectHandling\IssueStatus.cs" />
     <Compile Include="Presentation\Models\DefectHandling\Solution.cs" />
     <Compile Include="Presentation\Models\DefectHandling\SupportEntities.cs" />
@@ -195,7 +218,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\DefectHandling\Executors\" />
     <Folder Include="obj\" />
   </ItemGroup>
   <ItemGroup>
