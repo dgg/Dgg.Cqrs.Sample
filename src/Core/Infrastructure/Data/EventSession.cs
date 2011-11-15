@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using Db4objects.Db4o;
 using Db4objects.Db4o.Linq;
+using Dgg.Cqrs.Sample.Core.Infrastructure.Eventing;
 
 namespace Dgg.Cqrs.Sample.Core.Infrastructure.Data
 {
@@ -18,29 +18,26 @@ namespace Dgg.Cqrs.Sample.Core.Infrastructure.Data
 			_db = container;
 		}
 
-		public IQueryable<T> All<T>() where T : class
-		{
-			return _db.Cast<T>().Select(items => items).AsQueryable();
-		}
-
-		public T Single<T>(Expression<Func<T, bool>> expression) where T : class
-		{
-			return All<T>().SingleOrDefault(expression);
-		}
-
-		public void Save<T>(T item) where T : class
+		public void Save<T>(T item) where T : DomainEvent
 		{
 			_db.Store(item);
 		}
 
-		public void Save<T>(IEnumerable<T> items) where T : class
+		public IEnumerable<T> For<T>(Guid receiverId) where T : DomainEvent
 		{
-			foreach (var item in items)
-			{
-				_db.Store(item);
-			}
+			return _db.Cast<T>().Where(e => e.ReceiverId.Equals(receiverId));
 		}
 
+		public IEnumerable<T> For<T>(Guid receiverId, DateTimeOffset since) where T : DomainEvent
+		{
+			return _db.Cast<T>().Where(e => e.ReceiverId.Equals(receiverId) && e.TimeStamp >= since);
+		}
+
+		public IQueryable<T> All<T>() where T : DomainEvent
+		{
+			return _db.Cast<T>().AsQueryable();
+		}
+		
 		public void RollbackChanges()
 		{
 			_db.Rollback();

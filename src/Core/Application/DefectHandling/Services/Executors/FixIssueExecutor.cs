@@ -1,7 +1,7 @@
 ﻿using System;
-using Dgg.Anug.Cqrs.Core.Domain.DefectHandling.Events;
 using Dgg.Cqrs.Sample.Core.Application.DefectHandling.Commands;
 using Dgg.Cqrs.Sample.Core.Domain.DefectHandling;
+using Dgg.Cqrs.Sample.Core.Domain.DefectHandling.Events;
 using Dgg.Cqrs.Sample.Core.Infrastructure.Commanding;
 using Dgg.Cqrs.Sample.Core.Infrastructure.Data;
 using Dgg.Cqrs.Sample.Core.Infrastructure.Eventing;

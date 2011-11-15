@@ -1,5 +1,5 @@
-﻿using Dgg.Anug.Cqrs.Core.Domain.DefectHandling.Events;
-using Dgg.Cqrs.Sample.Core.Domain.DefectHandling;
+﻿using Dgg.Cqrs.Sample.Core.Domain.DefectHandling;
+using Dgg.Cqrs.Sample.Core.Domain.DefectHandling.Events;
 using Dgg.Cqrs.Sample.Core.Infrastructure.Data;
 using Dgg.Cqrs.Sample.Core.Infrastructure.Eventing;
 using Dgg.Cqrs.Sample.Core.Presentation.Models.DefectHandling;

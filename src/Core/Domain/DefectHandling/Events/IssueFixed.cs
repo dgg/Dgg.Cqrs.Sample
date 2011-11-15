@@ -1,8 +1,7 @@
 ﻿using System;
-using Dgg.Cqrs.Sample.Core.Domain.DefectHandling;
 using Dgg.Cqrs.Sample.Core.Infrastructure.Eventing;
 
-namespace Dgg.Anug.Cqrs.Core.Domain.DefectHandling.Events
+namespace Dgg.Cqrs.Sample.Core.Domain.DefectHandling.Events
 {
 	public class IssueFixed : DomainEvent
 	{

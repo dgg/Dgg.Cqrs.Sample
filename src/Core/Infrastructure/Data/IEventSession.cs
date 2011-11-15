@@ -1,17 +1,17 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
+using Dgg.Cqrs.Sample.Core.Infrastructure.Eventing;
 
 namespace Dgg.Cqrs.Sample.Core.Infrastructure.Data
 {
 	public interface IEventSession : IDisposable
 	{
-		IQueryable<T> All<T>() where T : class;
-		T Single<T>(Expression<Func<T, bool>> expression) where T : class;
-		void Save<T>(T item) where T : class;
-		void Save<T>(IEnumerable<T> items) where T : class;
+		void Save<T>(T item) where T : DomainEvent;
 		void CommitChanges();
 		void RollbackChanges();
+		IEnumerable<T> For<T>(Guid receiverId) where T : DomainEvent;
+		IEnumerable<T> For<T>(Guid receiverId, DateTimeOffset since) where T : DomainEvent;
+		IQueryable<T> All<T>() where T : DomainEvent;
 	}
 }
