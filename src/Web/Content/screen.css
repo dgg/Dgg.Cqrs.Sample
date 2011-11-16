@@ -114,7 +114,6 @@ label
 	list-style: none;
 	margin: 0;
 	overflow: hidden;
-	position: fixed;
 	z-index: 100;
 }
 .nav-pager li, .nav-prev-next li
@@ -130,8 +129,9 @@ label
 }
 .nav-pager
 {
-	bottom: 0;
-	left: 20px;
+	position: absolute;
+    right: 40px;
+    top: 0;
 }
 .nav-pager li
 {
@@ -149,8 +149,7 @@ label
 }
 .nav-prev-next
 {
-	right: 20px;
-	top: 0;
+	display: none;
 }
 .nav-prev-next li
 {

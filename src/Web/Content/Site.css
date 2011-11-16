@@ -371,7 +371,7 @@ div#title
 .disabled { color: #696969; text-decoration: none; }
 
 ul.actions {position: relative; margin-bottom: 0px; text-align: left; padding-left: 0px; margin-top: 0px; }
-ul.actions li { list-style: none; }
+ul.actions li { list-style: none; float: left; padding-left: 10px; }
 
 span.Open { color: firebrick}
 span.Fixed { color: cadetblue}
